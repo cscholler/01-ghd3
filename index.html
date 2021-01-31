@@ -1,10 +1,99 @@
-<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://d3js.org/d3.v6.min.js"> </script>
+
+<div id="value"> </div>
+<svg id="vis"> </svg>
 
 <script>
-  console.log(d3); // test if d3 is loaded
-  // Add an SVG
-  // Add Rectangles
-  // Add Circles
-  // Add Lines
-  // Add Polygons
+    let svg = d3.select('#vis')
+        .attr("width", 480)
+        .attr("height", 240)
+
+    let data = []
+
+    // Hull
+    svg.append('polygon')
+        .attr('points', '100,190 300,190 280,240 120,240')
+        .attr('stroke', 'black')
+        .attr('fill', 'lightgrey')
+
+    svg.append('text')
+        .attr('x', 105)
+        .attr('y', 200)
+        .style('font-size', '10px')
+        .text('SS Data Viz')
+
+    // Mast
+    svg.append("rect")
+        .attr("fill", "brown")
+        .attr("stroke", 'black')
+        .attr("x", 195)
+        .attr("y", 190 - 155)
+        .attr("width", 10)
+        .attr("height", 155)
+
+    // left sail
+    svg.append('polygon')
+        .attr('points', '190,40 80,185 190,185')
+        .attr('stroke', 'black')
+        .attr('fill', 'white')
+
+    // right sail
+    svg.append('polygon')
+        .attr('points', '210,40 320,185 210,185')
+        .attr('stroke', 'black')
+        .attr('fill', 'white')
+
+
+    for (i=5; i < svg.attr('width') + 5; i+=10) {
+        data.push(i)
+    }
+
+    let ocean = svg.selectAll("circle")
+    ocean
+        .data(data)
+        .enter().append("circle")
+        .attr("fill", "steelBlue")
+        .attr("r", 10)
+        .attr("cy", svg.attr("height"))
+        .attr("cx", function (d, i) {
+            return i * 10
+        })
+
+    let sun = svg.append('circle')
+    sun
+        .attr('fill', 'yellow')
+        .attr('r', 50)
+        .attr('cy', 10)
+        .attr('cx', svg.attr('width') - 10)
+        .on("mouseover", function () {
+            d3.select(this).attr("fill", "green")
+        })
+        .on("mouseout", function () {
+            d3.select(this).attr("fill", "yellow")
+        })
+
+    svg.append('line')
+        .attr('stroke', 'yellow')
+        .attr('stroke-width', 5)
+        .attr('x1', svg.attr('width') - (60 + 10))
+        .attr('y1', 10)
+        .attr('x2', (svg.attr('width') - (60 + 10)) - 60)
+        .attr('y2', 10)
+
+    svg.append('line')
+        .attr('stroke', 'yellow')
+        .attr('stroke-width', 5)
+        .attr('x1', svg.attr('width') - (60 * (Math.cos(Math.PI/4))) - 10)
+        .attr('y1', 60 * Math.sin(Math.PI/4) + 10)
+        .attr('x2', svg.attr('width') - (60 * (Math.cos(Math.PI/4))) - 60)
+        .attr('y2', 60 * Math.sin(Math.PI/4) + 60)
+
+    svg.append('line')
+        .attr('stroke', 'yellow')
+        .attr('stroke-width', 5)
+        .attr('x1', svg.attr('width') - (10))
+        .attr('y1', (60 + 10))
+        .attr('x2', svg.attr('width') - (10))
+        .attr('y2', (60 + 10) + 60)
+
 </script>
