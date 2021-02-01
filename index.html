@@ -44,13 +44,14 @@
         .attr('fill', 'white')
 
 
+    a = []
     for (i=5; i < svg.attr('width') + 5; i+=10) {
-        data.push(i)
+        a.push(i)
     }
 
     let ocean = svg.selectAll("circle")
     ocean
-        .data(data)
+        .data(a)
         .enter().append("circle")
         .attr("fill", "steelBlue")
         .attr("r", 10)
@@ -86,7 +87,7 @@
         .attr('x1', svg.attr('width') - (60 * (Math.cos(Math.PI/4))) - 10)
         .attr('y1', 60 * Math.sin(Math.PI/4) + 10)
         .attr('x2', svg.attr('width') - (60 * (Math.cos(Math.PI/4))) - 60)
-        .attr('y2', 60 * Math.sin(Math.PI/4) + 60)
+        .attr('y2', 60 * Math.sin(MathPI/4) + 60)
 
     svg.append('line')
         .attr('stroke', 'yellow')
