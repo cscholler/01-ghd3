@@ -12,10 +12,11 @@ The live project file can be found [here](https://cscholler.github.io/01-ghd3/in
 ### Technical Achievements
 Most of this project was guided using the example shown in class.
 However, for some basic shapes that were not shown in class I used [Lulu's Blogs - Basic Shapes](https://lucidar.me/en/d3.js/part-06-basic-shapes/).
-The two note-worthy technical achievements of this assignment are the ocean and the color changing sun.
+The note-worthy technical achievements of this assignment are the ocean, sun, and sails.
 The ocean uses basic data binding to rapidly create multiple circles.
-The sun when moused over changes colors from yellow to green by using ".on" and a "mouseover" and a "mouseout".
-This can be seen from the live page.
+When moused over the sails change colors by using ".on" and a "mouseover" and a "mouseout".
+The sun was created using basic data binding to trigonometric angles. 
+These can be seen from the live page.
 
 ### Design Achievements
 I'm not sure what my design achivements are. But what I can say I've work hard on is the sun's rays.
